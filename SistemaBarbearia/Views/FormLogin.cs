@@ -32,8 +32,8 @@ namespace SistemaBarbearia
 
                 this.Hide();
 
-                var form = new FormServicos();
-                form.Show();
+                var form = new FormBarbeiros();
+                form.ShowDialog();
             }
             catch (Exception ex)
             {

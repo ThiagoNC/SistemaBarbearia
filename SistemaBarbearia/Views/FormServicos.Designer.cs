@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormServicos));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             pnClientes = new Panel();
             pcBarber = new PictureBox();
             lblGestaoServico = new Label();
@@ -113,7 +113,7 @@
             // 
             // txtNome
             // 
-            txtNome.Font = new Font("Segoe UI", 12F);
+            txtNome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNome.Location = new Point(164, 29);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(192, 29);
@@ -125,7 +125,7 @@
             btnNovo.FlatStyle = FlatStyle.Flat;
             btnNovo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnNovo.ForeColor = Color.White;
-            btnNovo.Location = new Point(10, 144);
+            btnNovo.Location = new Point(10, 156);
             btnNovo.Name = "btnNovo";
             btnNovo.Size = new Size(110, 35);
             btnNovo.TabIndex = 55;
@@ -139,7 +139,7 @@
             btnSalvar.FlatStyle = FlatStyle.Flat;
             btnSalvar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSalvar.ForeColor = Color.White;
-            btnSalvar.Location = new Point(126, 144);
+            btnSalvar.Location = new Point(126, 156);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(110, 35);
             btnSalvar.TabIndex = 50;
@@ -153,7 +153,7 @@
             btnExcluir.FlatStyle = FlatStyle.Flat;
             btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnExcluir.ForeColor = Color.White;
-            btnExcluir.Location = new Point(242, 144);
+            btnExcluir.Location = new Point(242, 156);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(110, 35);
             btnExcluir.TabIndex = 60;
@@ -163,19 +163,19 @@
             // 
             // dgvServicos
             // 
-            dataGridViewCellStyle1.BackColor = Color.Gainsboro;
-            dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = Color.Gainsboro;
+            dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dgvServicos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvServicos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServicos.BackgroundColor = Color.White;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvServicos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicos.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Preco, DuracaoMinutos });
             dgvServicos.Location = new Point(378, 203);
@@ -269,6 +269,7 @@
             // 
             // nudDuracaoMinutos
             // 
+            nudDuracaoMinutos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nudDuracaoMinutos.Location = new Point(164, 99);
             nudDuracaoMinutos.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             nudDuracaoMinutos.Name = "nudDuracaoMinutos";
@@ -279,6 +280,7 @@
             // nudPreco
             // 
             nudPreco.DecimalPlaces = 2;
+            nudPreco.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nudPreco.Increment = new decimal(new int[] { 50, 0, 0, 131072 });
             nudPreco.Location = new Point(164, 64);
             nudPreco.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
