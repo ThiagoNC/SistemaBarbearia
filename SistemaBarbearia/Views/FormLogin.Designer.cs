@@ -223,6 +223,7 @@
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login - Sistema de Barbearia";
+            FormClosing += FormLogin_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pcImagem).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcLogin).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcSenha).EndInit();

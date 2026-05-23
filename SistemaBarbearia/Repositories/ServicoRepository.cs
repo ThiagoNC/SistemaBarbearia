@@ -93,27 +93,27 @@ namespace SistemaBarbearia.Repositories
         {
             var lista = new List<Servico>();
 
-            //using (MySqlConnection conexao = _conexaoBanco.GetConexao())
-            //{
-            //    string sql = "SELECT Id, Nome, Preco, DuracaoMinutos FROM Clientes WHERE Nome LIKE @nome";
-            //    var comando = new MySqlCommand(sql, conexao);
-            //    comando.Parameters.AddWithValue("@nome", "%" + nome + "%");
+            using (MySqlConnection conexao = _conexaoBanco.GetConexao())
+            {
+                string sql = "SELECT Id, Nome, Preco, DuracaoMinutos FROM Servicos WHERE Nome LIKE @nome";
+                var comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@nome", "%" + nome + "%");
 
-            //    conexao.Open();
-            //    using (MySqlDataReader reader = comando.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            lista.Add(new Servico
-            //            {
-            //                Id = (int)reader["Id"],
-            //                Nome = reader["Nome"].ToString(),
-            //                Preco = (decimal)reader["Preco"],
-            //                DuracaoMinutos = (int)reader["DuracaoMinutos"]
-            //            });
-            //        }
-            //    }
-            //}
+                conexao.Open();
+                using (MySqlDataReader reader = comando.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new Servico
+                        {
+                            Id = (int)reader["Id"],
+                            Nome = reader["Nome"].ToString(),
+                            Preco = (decimal)reader["Preco"],
+                            DuracaoMinutos = (int)reader["DuracaoMinutos"]
+                        });
+                    }
+                }
+            }
             return lista;
         }
     }

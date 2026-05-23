@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormServicos));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnClientes = new Panel();
             pcBarber = new PictureBox();
             lblGestaoServico = new Label();
@@ -163,19 +163,19 @@
             // 
             // dgvServicos
             // 
-            dataGridViewCellStyle3.BackColor = Color.Gainsboro;
-            dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = Color.Gainsboro;
+            dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvServicos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvServicos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServicos.BackgroundColor = Color.White;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvServicos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicos.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Preco, DuracaoMinutos });
             dgvServicos.Location = new Point(378, 203);
@@ -301,6 +301,7 @@
             Name = "FormServicos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Gestão de Barbearia - Serviços";
+            FormClosing += FormServicos_FormClosing;
             Load += FormServicos_Load;
             pnClientes.ResumeLayout(false);
             pnClientes.PerformLayout();

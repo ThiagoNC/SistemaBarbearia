@@ -87,7 +87,7 @@ namespace SistemaBarbearia.Views
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
             var service = new ServicoService();
-            
+
             dgvServicos.DataSource = service.ListarPorNome(txtPesquisar.Text);
         }
 
@@ -166,6 +166,14 @@ namespace SistemaBarbearia.Views
                     MessageBox.Show("Erro ao excluir: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void FormServicos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+
+            var form = new FormLogin();
+            form.ShowDialog();
         }
     }
 }

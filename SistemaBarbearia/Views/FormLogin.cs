@@ -53,5 +53,10 @@ namespace SistemaBarbearia
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
         }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -335,6 +335,7 @@
             Name = "FormClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Gestão de Barbearia - Clientes";
+            FormClosing += FormClientes_FormClosing;
             Load += FormClientes_Load;
             pnClientes.ResumeLayout(false);
             pnClientes.PerformLayout();
