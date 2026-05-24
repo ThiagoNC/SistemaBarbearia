@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormServicos));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnClientes = new Panel();
             pcBarber = new PictureBox();
             lblGestaoServico = new Label();
@@ -73,7 +73,7 @@
             // pcBarber
             // 
             pcBarber.Image = (Image)resources.GetObject("pcBarber.Image");
-            pcBarber.Location = new Point(212, 27);
+            pcBarber.Location = new Point(197, 27);
             pcBarber.Name = "pcBarber";
             pcBarber.Size = new Size(100, 100);
             pcBarber.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -85,11 +85,11 @@
             lblGestaoServico.AutoSize = true;
             lblGestaoServico.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGestaoServico.ForeColor = Color.White;
-            lblGestaoServico.Location = new Point(318, 45);
+            lblGestaoServico.Location = new Point(303, 45);
             lblGestaoServico.Name = "lblGestaoServico";
-            lblGestaoServico.Size = new Size(452, 65);
+            lblGestaoServico.Size = new Size(520, 65);
             lblGestaoServico.TabIndex = 0;
-            lblGestaoServico.Text = "Gestão de Serviços";
+            lblGestaoServico.Text = "GESTÃO DE SERVIÇOS";
             // 
             // lblNome
             // 
@@ -163,22 +163,23 @@
             // 
             // dgvServicos
             // 
-            dataGridViewCellStyle5.BackColor = Color.Gainsboro;
-            dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.Gainsboro;
+            dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvServicos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvServicos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServicos.BackgroundColor = Color.White;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvServicos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicos.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Preco, DuracaoMinutos });
             dgvServicos.Location = new Point(378, 203);
+            dgvServicos.MultiSelect = false;
             dgvServicos.Name = "dgvServicos";
             dgvServicos.ReadOnly = true;
             dgvServicos.Size = new Size(618, 296);
@@ -305,6 +306,7 @@
             Text = "Sistema de Gestão de Barbearia - Serviços";
             FormClosing += FormServicos_FormClosing;
             Load += FormServicos_Load;
+            KeyDown += FormServicos_KeyDown;
             pnClientes.ResumeLayout(false);
             pnClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcBarber).EndInit();

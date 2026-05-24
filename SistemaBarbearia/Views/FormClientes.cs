@@ -15,6 +15,7 @@ namespace SistemaBarbearia.Views
         public FormClientes()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void AtualizarGrid()
@@ -23,7 +24,7 @@ namespace SistemaBarbearia.Views
             {
                 var service = new ClienteService();
 
-                var listaClientes = service.ListarTodos();
+                var listaClientes = service.ListarTodos().OrderBy(c => c.Nome).ToList();
 
                 dgvClientes.DataSource = listaClientes;
             }
@@ -96,7 +97,7 @@ namespace SistemaBarbearia.Views
         {
             var service = new ClienteService();
 
-            dgvClientes.DataSource = service.ListarPorNome(txtPesquisar.Text);
+            dgvClientes.DataSource = service.ListarPorNome(txtPesquisar.Text).OrderBy(c => c.Nome).ToList();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -124,13 +125,13 @@ namespace SistemaBarbearia.Views
 
                 if (this.Tag == null || string.IsNullOrEmpty(this.Tag.ToString()))
                 {
-                    service.Inserir(txtNome.Text, mtbTelefone.Text, txtEmail.Text, dtpDtNascimento.Value);
+                    service.Inserir(new Cliente { Nome = txtNome.Text, Telefone = mtbTelefone.Text, Email = txtEmail.Text, DataNascimento = dtpDtNascimento.Value });
                     MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     int id = Convert.ToInt32(this.Tag);
-                    service.Atualizar(id, txtNome.Text, mtbTelefone.Text, txtEmail.Text, dtpDtNascimento.Value);
+                    service.Atualizar(new Cliente { Id = id, Nome = txtNome.Text, Telefone = mtbTelefone.Text, Email = txtEmail.Text, DataNascimento = dtpDtNascimento.Value });
                     MessageBox.Show("Cliente atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -180,8 +181,16 @@ namespace SistemaBarbearia.Views
         {
             this.Hide();
 
-            var form = new FormLogin();
+            var form = new FormPrincipal();
             form.ShowDialog();
+        }
+
+        private void FormClientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

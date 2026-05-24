@@ -219,7 +219,7 @@
             Controls.Add(txtLogin);
             Controls.Add(lblBemVindo);
             Controls.Add(pcImagem);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login - Sistema de Barbearia";

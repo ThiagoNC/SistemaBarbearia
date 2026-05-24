@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBarbeiros));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnClientes = new Panel();
             pcBarber = new PictureBox();
             lblGestaoBarbeiros = new Label();
@@ -78,7 +78,7 @@
             // pcBarber
             // 
             pcBarber.Image = (Image)resources.GetObject("pcBarber.Image");
-            pcBarber.Location = new Point(212, 27);
+            pcBarber.Location = new Point(170, 27);
             pcBarber.Name = "pcBarber";
             pcBarber.Size = new Size(100, 100);
             pcBarber.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -90,11 +90,11 @@
             lblGestaoBarbeiros.AutoSize = true;
             lblGestaoBarbeiros.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGestaoBarbeiros.ForeColor = Color.White;
-            lblGestaoBarbeiros.Location = new Point(318, 45);
+            lblGestaoBarbeiros.Location = new Point(276, 45);
             lblGestaoBarbeiros.Name = "lblGestaoBarbeiros";
-            lblGestaoBarbeiros.Size = new Size(480, 65);
+            lblGestaoBarbeiros.Size = new Size(559, 65);
             lblGestaoBarbeiros.TabIndex = 0;
-            lblGestaoBarbeiros.Text = "Gestão de Barbeiros";
+            lblGestaoBarbeiros.Text = "GESTÃO DE BARBEIROS";
             // 
             // lblNome
             // 
@@ -168,22 +168,23 @@
             // 
             // dgvBarbeiros
             // 
-            dataGridViewCellStyle3.BackColor = Color.Gainsboro;
-            dgvBarbeiros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = Color.Gainsboro;
+            dgvBarbeiros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvBarbeiros.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvBarbeiros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBarbeiros.BackgroundColor = Color.White;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvBarbeiros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvBarbeiros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvBarbeiros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBarbeiros.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Telefone, Email, DataNascimento, PercentualComissao });
             dgvBarbeiros.Location = new Point(378, 203);
+            dgvBarbeiros.MultiSelect = false;
             dgvBarbeiros.Name = "dgvBarbeiros";
             dgvBarbeiros.ReadOnly = true;
             dgvBarbeiros.Size = new Size(618, 296);
@@ -363,6 +364,7 @@
             Text = "Sistema de Gestão de Barbearia - Barbeiros";
             FormClosing += FormBarbeiros_FormClosing;
             Load += FormBarbeiros_Load;
+            KeyDown += FormBarbeiros_KeyDown;
             pnClientes.ResumeLayout(false);
             pnClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcBarber).EndInit();

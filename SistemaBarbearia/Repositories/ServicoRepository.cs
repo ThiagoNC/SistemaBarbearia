@@ -66,7 +66,7 @@ namespace SistemaBarbearia.Repositories
         {
             var lista = new List<Servico>();
 
-            using (var conexao = _conexaoBanco.GetConexao())
+            using (MySqlConnection conexao = _conexaoBanco.GetConexao())
             {
                 string sql = "SELECT * FROM Servicos";
                 var comando = new MySqlCommand(sql, conexao);

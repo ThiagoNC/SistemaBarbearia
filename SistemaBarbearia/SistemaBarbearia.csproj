@@ -21,6 +21,12 @@
     <Compile Update="Views\FormBarbeiros.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FormAgendamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FormServicos.cs">
       <SubType>Form</SubType>
     </Compile>

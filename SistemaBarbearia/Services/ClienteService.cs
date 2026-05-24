@@ -15,17 +15,17 @@ namespace SistemaBarbearia.Services
             _repository = new ClienteRepository();
         }
 
-        public void Inserir(string nome, string telefone, string email, DateTime dataNascimento)
+        public void Inserir(Cliente cliente)
         {
-            if (string.IsNullOrWhiteSpace(nome)) throw new Exception("O nome é obrigatório.");
-            if (string.IsNullOrWhiteSpace(telefone)) throw new Exception("O telefone é obrigatório.");
+            if (string.IsNullOrWhiteSpace(cliente.Nome)) throw new Exception("O nome é obrigatório.");
+            if (string.IsNullOrWhiteSpace(cliente.Telefone)) throw new Exception("O telefone é obrigatório.");
 
-            _repository.Inserir(new Cliente { Nome = nome, Telefone = telefone, Email = email, DataNascimento = dataNascimento });
+            _repository.Inserir(cliente);
         }
 
-        public void Atualizar(int id, string nome, string telefone, string email, DateTime dataNascimento)
+        public void Atualizar(Cliente cliente)
         {
-            _repository.Atualizar(new Cliente { Id = id, Nome = nome, Telefone = telefone, Email = email, DataNascimento = dataNascimento});
+            _repository.Atualizar(cliente);
         }
 
         public void Deletar(int id)

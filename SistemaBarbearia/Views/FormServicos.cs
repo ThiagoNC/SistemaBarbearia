@@ -15,6 +15,7 @@ namespace SistemaBarbearia.Views
         public FormServicos()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void AtualizarGrid()
@@ -23,14 +24,13 @@ namespace SistemaBarbearia.Views
             {
                 var service = new ServicoService();
 
-                var listaServicos = service.ListarTodos();
+                var listaServicos = service.ListarTodos().OrderBy(s => s.Nome).ToList();
 
                 dgvServicos.DataSource = listaServicos;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar a lista de servicos: " + ex.Message,
-                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao carregar a lista de servicos: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,7 +88,7 @@ namespace SistemaBarbearia.Views
         {
             var service = new ServicoService();
 
-            dgvServicos.DataSource = service.ListarPorNome(txtPesquisar.Text);
+            dgvServicos.DataSource = service.ListarPorNome(txtPesquisar.Text).OrderBy(s => s.Nome).ToList();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -116,13 +116,13 @@ namespace SistemaBarbearia.Views
 
                 if (this.Tag == null || string.IsNullOrEmpty(this.Tag.ToString()))
                 {
-                    service.Inserir(txtNome.Text, nudPreco.Value, (int)nudDuracaoMinutos.Value);
+                    service.Inserir(new Servico { Nome = txtNome.Text, Preco = nudPreco.Value, DuracaoMinutos = (int)nudDuracaoMinutos.Value });
                     MessageBox.Show("Serviço cadastrado com sucesso!");
                 }
                 else
                 {
                     int id = Convert.ToInt32(this.Tag);
-                    service.Atualizar(id, txtNome.Text, nudPreco.Value, (int)nudDuracaoMinutos.Value);
+                    service.Atualizar(new Servico { Id = id, Nome = txtNome.Text, Preco = nudPreco.Value, DuracaoMinutos = (int)nudDuracaoMinutos.Value });
                     MessageBox.Show("Serviço atualizado com sucesso!");
                 }
 
@@ -172,8 +172,16 @@ namespace SistemaBarbearia.Views
         {
             this.Hide();
 
-            var form = new FormLogin();
+            var form = new FormPrincipal();
             form.ShowDialog();
+        }
+
+        private void FormServicos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

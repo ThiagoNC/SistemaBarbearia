@@ -32,7 +32,7 @@ namespace SistemaBarbearia
 
                 this.Hide();
 
-                var form = new FormBarbeiros();
+                var form = new FormPrincipal(usuarioLogado.Nome);
                 form.ShowDialog();
             }
             catch (Exception ex)
@@ -56,7 +56,19 @@ namespace SistemaBarbearia
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirmacao = MessageBox.Show("Deseja realmente sair do sistema?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmacao == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Environment.Exit(0);
+                }
+            }
         }
     }
 }

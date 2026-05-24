@@ -15,18 +15,18 @@ namespace SistemaBarbearia.Services
             _repository = new BarbeiroRepository();
         }
 
-        public void Inserir(string nome, string telefone, string email, DateTime dataNascimento, decimal percentualComissao)
+        public void Inserir(Barbeiro barbeiro)
         {
-            if (string.IsNullOrWhiteSpace(nome)) throw new Exception("O nome é obrigatório.");
-            if (string.IsNullOrWhiteSpace(telefone)) throw new Exception("O telefone é obrigatório.");
-            if (percentualComissao <= 0) throw new Exception("O comissão deve ser maior que zero.");
+            if (string.IsNullOrWhiteSpace(barbeiro.Nome)) throw new Exception("O nome é obrigatório.");
+            if (string.IsNullOrWhiteSpace(barbeiro.Telefone)) throw new Exception("O telefone é obrigatório.");
+            if (barbeiro.PercentualComissao <= 0) throw new Exception("O comissão deve ser maior que zero.");
 
-            _repository.Inserir(new Barbeiro { Nome = nome, Telefone = telefone, Email = email, DataNascimento = dataNascimento, PercentualComissao = percentualComissao });
+            _repository.Inserir(barbeiro);
         }
 
-        public void Atualizar(int id, string nome, string telefone, string email, DateTime dataNascimento, decimal percentualComissao)
+        public void Atualizar(Barbeiro barbeiro)
         {
-            _repository.Atualizar(new Barbeiro { Id = id, Nome = nome, Telefone = telefone, Email = email, DataNascimento = dataNascimento, PercentualComissao = percentualComissao });
+            _repository.Atualizar(barbeiro);
         }
 
         public void Deletar(int id)

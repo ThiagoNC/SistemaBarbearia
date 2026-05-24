@@ -75,7 +75,7 @@
             // pcBarber
             // 
             pcBarber.Image = (Image)resources.GetObject("pcBarber.Image");
-            pcBarber.Location = new Point(212, 27);
+            pcBarber.Location = new Point(197, 27);
             pcBarber.Name = "pcBarber";
             pcBarber.Size = new Size(100, 100);
             pcBarber.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -87,11 +87,11 @@
             lblGestaoClientes.AutoSize = true;
             lblGestaoClientes.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGestaoClientes.ForeColor = Color.White;
-            lblGestaoClientes.Location = new Point(318, 45);
+            lblGestaoClientes.Location = new Point(303, 45);
             lblGestaoClientes.Name = "lblGestaoClientes";
-            lblGestaoClientes.Size = new Size(444, 65);
+            lblGestaoClientes.Size = new Size(512, 65);
             lblGestaoClientes.TabIndex = 0;
-            lblGestaoClientes.Text = "Gestão de Clientes";
+            lblGestaoClientes.Text = "GESTÃO DE CLIENTES";
             // 
             // lblNome
             // 
@@ -181,6 +181,7 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Telefone, Email, DataNascimento, DataCadastro });
             dgvClientes.Location = new Point(378, 203);
+            dgvClientes.MultiSelect = false;
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.Size = new Size(618, 296);
@@ -337,6 +338,7 @@
             Text = "Sistema de Gestão de Barbearia - Clientes";
             FormClosing += FormClientes_FormClosing;
             Load += FormClientes_Load;
+            KeyDown += FormClientes_KeyDown;
             pnClientes.ResumeLayout(false);
             pnClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcBarber).EndInit();

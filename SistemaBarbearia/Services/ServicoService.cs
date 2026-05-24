@@ -15,17 +15,17 @@ namespace SistemaBarbearia.Services
             _repository = new ServicoRepository();
         }
 
-        public void Inserir(string nome, decimal preco, int duracao)
+        public void Inserir(Servico servico)
         {
-            if (string.IsNullOrWhiteSpace(nome)) throw new Exception("Nome do serviço é obrigatório.");
-            if (preco <= 0) throw new Exception("O preço deve ser maior que zero.");
+            if (string.IsNullOrWhiteSpace(servico.Nome)) throw new Exception("Nome do serviço é obrigatório.");
+            if (servico.Preco <= 0) throw new Exception("O preço deve ser maior que zero.");
 
-            _repository.Inserir(new Servico { Nome = nome, Preco = preco, DuracaoMinutos = duracao });
+            _repository.Inserir(servico);
         }
 
-        public void Atualizar(int id, string nome, decimal preco, int duracao)
+        public void Atualizar(Servico servico)
         {
-            _repository.Atualizar(new Servico { Id = id, Nome = nome, Preco = preco, DuracaoMinutos = duracao });
+            _repository.Atualizar(servico);
         }
 
         public void Deletar(int id)

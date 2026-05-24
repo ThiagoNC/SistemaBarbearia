@@ -17,17 +17,11 @@ namespace SistemaBarbearia.Services
 
         public Usuario FazerLogin(string login, string senha)
         {
-            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(senha))
-            {
-                throw new Exception("Por favor, preencha o login e a senha.");
-            }
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(senha)) throw new Exception("Por favor, preencha o login e a senha.");
 
             Usuario usuario = _repository.ValidarLogin(login, senha);
 
-            if (usuario == null)
-            {
-                throw new Exception("Login ou senha incorretos.");
-            }
+            if (usuario == null) throw new Exception("Login ou senha incorretos.");
 
             return usuario;
         }

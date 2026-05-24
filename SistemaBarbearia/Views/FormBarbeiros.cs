@@ -15,6 +15,7 @@ namespace SistemaBarbearia.Views
         public FormBarbeiros()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void AtualizarGrid()
@@ -23,14 +24,13 @@ namespace SistemaBarbearia.Views
             {
                 var service = new BarbeiroService();
 
-                var listaBarbeiros = service.ListarTodos();
+                var listaBarbeiros = service.ListarTodos().OrderBy(b => b.Nome).ToList();
 
                 dgvBarbeiros.DataSource = listaBarbeiros;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar a lista de barbeiros: " + ex.Message,
-                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao carregar a lista de barbeiros: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -98,7 +98,7 @@ namespace SistemaBarbearia.Views
         {
             var service = new BarbeiroService();
 
-            dgvBarbeiros.DataSource = service.ListarPorNome(txtPesquisar.Text);
+            dgvBarbeiros.DataSource = service.ListarPorNome(txtPesquisar.Text).OrderBy(b => b.Nome).ToList();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -126,13 +126,13 @@ namespace SistemaBarbearia.Views
 
                 if (this.Tag == null || string.IsNullOrEmpty(this.Tag.ToString()))
                 {
-                    service.Inserir(txtNome.Text, mtbTelefone.Text, txtEmail.Text, dtpDtNascimento.Value, nudPercentualComissao.Value);
+                    service.Inserir(new Barbeiro { Nome = txtNome.Text, Telefone = mtbTelefone.Text, Email = txtEmail.Text, DataNascimento = dtpDtNascimento.Value, PercentualComissao = nudPercentualComissao.Value });
                     MessageBox.Show("Barbeiro cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     int id = Convert.ToInt32(this.Tag);
-                    service.Atualizar(id, txtNome.Text, mtbTelefone.Text, txtEmail.Text, dtpDtNascimento.Value, nudPercentualComissao.Value);
+                    service.Atualizar(new Barbeiro { Id = id, Nome = txtNome.Text, Telefone = mtbTelefone.Text, Email = txtEmail.Text, DataNascimento = dtpDtNascimento.Value, PercentualComissao = nudPercentualComissao.Value });
                     MessageBox.Show("Barbeiro atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -182,8 +182,16 @@ namespace SistemaBarbearia.Views
         {
             this.Hide();
 
-            var form = new FormLogin();
+            var form = new FormPrincipal();
             form.ShowDialog();
+        }
+
+        private void FormBarbeiros_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }
